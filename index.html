@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <title>Document</title>
+    <script>
+       // Function to check Whether both passwords
+            // is same or not.
+            function checkPassword(form) {
+                password1 = form.password1.value;
+                password2 = form.password2.value;
+  
+                // If password not entered
+                if (password1 == '')
+                    alert ("Please enter Password");
+                      
+                // If confirm password not entered
+                else if (password2 == '')
+                    alert ("Please enter confirm password");
+                      
+                // If Not same return False.    
+                else if (password1 != password2) {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+  
+                // If same return True.
+                else{
+                    alert("Welcome")
+                    return true;
+                }
+            }
+        
+    </script>
 </head>
 <body>
    <div class="left">
@@ -18,10 +47,28 @@
    <div class="right">
        <div class="top">
            <p class="description">This is a website thats all about leaves, trees, and wood. If you would like to subscribe to tree, leaf, and wood updates, fill out the form below! </p>
-           <p class="description">Please subscribe........please.</p>
+           <p class="description">Subscribe!</p>
        </div>
-       <form action=""></form>
-       <div class="bottom"></div>
+       <form action="" method="post" onsubmit="return checkPassword(this)">
+            <p class="formP">Fill out the information below:</p>
+            <div class="inputDiv">
+                
+            <ul>
+               <label for="firstName">First Name</label><input type="text" name="first" id="firstName" required>
+               <label for="email">Email</label><input type="email" name="email" id="email" required>
+               <label for="password1">Password</label><input type="password" name="password1" id="password1" required>
+            </ul>
+            <ul>
+               <label for="lastName">Last Name</label><input type="text" name="last" id="lastName" required>
+               <label for="phone">Phone Number</label><input type="tel" name="phoneNumber" id="phone" placeholder="XXX-XXX-XXXX" pattern="{10}[0-9]">
+               <label for="password2">Confirm Password</label><input type="password" name="password2" id="password2" required>
+            </ul>
+            </div>
+            <div class="buttonDiv">
+               <button type="submit">Submit</button>
+            </div>
+       </form>
+
    </div>
 </body>
 </html>
